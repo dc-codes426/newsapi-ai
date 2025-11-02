@@ -161,7 +161,10 @@ class NewsAgent:
         - Final summary
         """
         if session_id:
-            messages = self.conversation_history.get(session_id, [])
+            # Get or create conversation history for this session
+            if session_id not in self.conversation_history:
+                self.conversation_history[session_id] = []
+            messages = self.conversation_history[session_id]
             messages.append({
                 "role": "user",
                 "content": user_prompt
@@ -220,10 +223,10 @@ class NewsAgent:
                 # Combine all intermediate responses
                 final_response = "\n\n".join(intermediate_responses) if intermediate_responses else ""
 
-                # Update conversation history if session_id provided
-                if session_id:
-                    messages.append({"role": "assistant", "content": response.content})
-                    self.conversation_history[session_id] = messages
+                # Add final assistant response to conversation history
+                messages.append({"role": "assistant", "content": response.content})
+                # Note: if session_id is provided, messages is already a reference
+                # to self.conversation_history[session_id], so it's automatically saved
 
                 return {
                     "response": final_response,

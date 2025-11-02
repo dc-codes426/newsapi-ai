@@ -171,6 +171,32 @@ class TestQueryEndpoint:
             session_id="session_123"
         )
 
+    @patch('src.api_server.main.news_agent')
+    def test_query_generates_session_id(self, mock_agent, client, mock_agent_response):
+        """Test query endpoint generates session ID if not provided."""
+        mock_agent.process_request.return_value = mock_agent_response
+
+        request_data = {
+            "query": "Find news about AI",
+            "response_format": "natural"
+        }
+
+        response = client.post("/query", json=request_data)
+
+        assert response.status_code == 200
+        data = response.json()
+        # Should have a session_id in response
+        assert "session_id" in data
+        assert data["session_id"] is not None
+        # Should be a UUID format
+        import uuid
+        try:
+            uuid.UUID(data["session_id"])
+            valid_uuid = True
+        except:
+            valid_uuid = False
+        assert valid_uuid
+
     def test_query_without_agent(self, client):
         """Test query endpoint when agent is not configured."""
         with patch('src.api_server.main.news_agent', None):

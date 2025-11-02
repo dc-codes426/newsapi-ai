@@ -19,7 +19,7 @@ class QueryRequest(BaseModel):
     )
     session_id: Optional[str] = Field(
         None,
-        description="Optional session ID to maintain conversation context"
+        description="Optional session ID to maintain conversation context. If not provided, server will generate one."
     )
     response_format: Literal["natural", "structured", "both"] = Field(
         default="both",
@@ -56,7 +56,7 @@ class QueryResponse(BaseModel):
     )
     session_id: Optional[str] = Field(
         None,
-        description="Session ID for maintaining conversation context"
+        description="Session ID for maintaining conversation context. Save this and include it in subsequent requests to maintain conversation memory."
     )
     format: Literal["natural", "structured", "both"] = Field(
         default="both",

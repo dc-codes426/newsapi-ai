@@ -6,6 +6,7 @@ and returns intelligent news search results using Claude AI.
 """
 
 import logging
+import uuid
 from typing import Dict, Any, List, Optional
 from contextlib import asynccontextmanager
 
@@ -137,10 +138,13 @@ async def query_news(request: QueryRequest):
     try:
         logger.info(f"Processing query: {request.query[:100]}...")
 
+        # Generate session_id if not provided
+        session_id = request.session_id or str(uuid.uuid4())
+
         # Process the request through the agent
         result = news_agent.process_request(
             user_prompt=request.query,
-            session_id=request.session_id
+            session_id=session_id
         )
 
         # Extract natural language response
@@ -151,7 +155,7 @@ async def query_news(request: QueryRequest):
 
         # Build response based on requested format
         response = QueryResponse(
-            session_id=request.session_id,
+            session_id=session_id,  # Return the session_id (generated or provided)
             format=request.response_format
         )
 
