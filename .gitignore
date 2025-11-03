@@ -2,6 +2,10 @@
 run-backend.sh
 stop.sh
 
+# PID files
+server.pid
+web.pid
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
