@@ -6,16 +6,32 @@ function Hero() {
     <section className="hero">
       <div className="container">
         <div className="hero-content">
-          <h1 className="hero-title">Search worldwide news with AI</h1>
+          <div className="hero-badge">AI-Powered News Intelligence</div>
+          <h1 className="hero-title">Keep Your AI Agents Updated with Real-Time News</h1>
           <p className="hero-subtitle">
-            Locate articles and breaking news headlines from news sources and blogs
-            across the web with our AI-powered news API
+            The first news API built for AI agents. Search semantically, understand context,
+            and retrieve relevant news using natural language. Perfect for RAG systems,
+            chatbots, and intelligent automation.
           </p>
+          <div className="hero-features-quick">
+            <div className="hero-feature-item">
+              <span className="hero-feature-icon">🧠</span>
+              <span>Semantic Search</span>
+            </div>
+            <div className="hero-feature-item">
+              <span className="hero-feature-icon">🤖</span>
+              <span>AI Agent Ready</span>
+            </div>
+            <div className="hero-feature-item">
+              <span className="hero-feature-icon">⚡</span>
+              <span>Real-Time Updates</span>
+            </div>
+          </div>
           <div className="hero-cta">
             <a href="#api-key" className="btn btn-primary">Get API Key</a>
             <a href="#documentation" className="btn btn-secondary">View Documentation</a>
           </div>
-          <p className="hero-note">Get started with 100 free requests per day</p>
+          <p className="hero-note">Start free - 100 requests per day • No credit card required</p>
         </div>
       </div>
     </section>

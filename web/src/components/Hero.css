@@ -6,8 +6,19 @@
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .hero-title {
@@ -18,10 +29,33 @@
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 2.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
   opacity: 0.95;
   line-height: 1.6;
+}
+
+.hero-features-quick {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-feature-icon {
+  font-size: 1.3rem;
 }
 
 .hero-cta {

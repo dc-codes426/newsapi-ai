@@ -4,39 +4,39 @@ import './Features.css'
 const features = [
   {
     id: 1,
-    icon: '🌍',
-    title: 'Worldwide Coverage',
-    description: 'Access news from over 150,000 sources across 14 languages. Get breaking news and articles from every corner of the globe.'
+    icon: '🧠',
+    title: 'Semantic Understanding',
+    description: 'Search by meaning, not just keywords. Our AI understands context and intent, delivering truly relevant results for your agents.'
   },
   {
     id: 2,
-    icon: '⚡',
-    title: 'Simple REST API',
-    description: 'Easy to integrate REST API with JSON responses. Get started in minutes with comprehensive documentation and examples.'
+    icon: '🤖',
+    title: 'RAG-Optimized',
+    description: 'Pre-processed and structured for Retrieval-Augmented Generation. Perfect for ChatGPT, Claude, and custom LLM applications.'
   },
   {
     id: 3,
-    icon: '🎯',
-    title: 'Powerful Filtering',
-    description: 'Filter by keywords, dates, sources, languages, and more. Find exactly what you need with advanced search capabilities.'
+    icon: '💬',
+    title: 'Natural Language Queries',
+    description: 'Ask questions in plain English. No complex query syntax - just conversational requests that your AI agents can easily generate.'
   },
   {
     id: 4,
-    icon: '🤖',
-    title: 'AI-Powered Search',
-    description: 'Leverage AI to find the most relevant articles and understand sentiment, topics, and trends in real-time.'
+    icon: '⚡',
+    title: 'Real-Time Updates',
+    description: 'Keep your AI agents informed with breaking news as it happens. Automatic updates ensure your agents always have current information.'
   },
   {
     id: 5,
-    icon: '🔒',
-    title: 'Secure & Reliable',
-    description: 'Enterprise-grade security with 99.9% uptime SLA. Your data and API keys are always protected.'
+    icon: '🎯',
+    title: 'Topic Monitoring',
+    description: 'Track specific topics, companies, or trends. Get alerts and summaries tailored for your AI agent\'s specific knowledge needs.'
   },
   {
     id: 6,
     icon: '📊',
-    title: 'Real-time Analytics',
-    description: 'Track your API usage, monitor performance, and get insights with our comprehensive analytics dashboard.'
+    title: 'Sentiment & Analysis',
+    description: 'Built-in sentiment analysis, topic extraction, and relevance scoring. Give your AI agents the context they need to respond intelligently.'
   }
 ]
 
@@ -44,9 +44,9 @@ function Features() {
   return (
     <section className="features">
       <div className="container">
-        <h2 className="section-title">Why choose NewsAPI AI?</h2>
+        <h2 className="section-title">Designed for AI Agents</h2>
         <p className="section-subtitle">
-          Everything you need to build powerful news applications
+          Everything your AI agents need to stay informed and respond intelligently
         </p>
 
         <div className="features-grid">
@@ -60,9 +60,9 @@ function Features() {
         </div>
 
         <div className="cta-section">
-          <h3 className="cta-title">Ready to get started?</h3>
+          <h3 className="cta-title">Ready to empower your AI agents?</h3>
           <p className="cta-description">
-            Start building with 100 free requests per day. No credit card required.
+            Start building intelligent news-aware applications today. 100 free requests per day. No credit card required.
           </p>
           <a href="#api-key" className="btn btn-primary-large">
             Get Your Free API Key

@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import CodeExamples from './components/CodeExamples'
 import Features from './components/Features'
+import UseCases from './components/UseCases'
 import Footer from './components/Footer'
 import './App.css'
 
@@ -13,6 +14,7 @@ function App() {
       <Hero />
       <CodeExamples />
       <Features />
+      <UseCases />
       <Footer />
     </div>
   )
