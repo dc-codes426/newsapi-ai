@@ -346,6 +346,13 @@ class UserQuery:
         # Validate sortBy
         self.sortBy = validate_sortBy(self.sortBy)
 
+        # Convert date strings to datetime objects if needed
+        if self.from_date and isinstance(self.from_date, str):
+            self.from_date = datetime.fromisoformat(self.from_date.replace('Z', '+00:00'))
+
+        if self.to_date and isinstance(self.to_date, str):
+            self.to_date = datetime.fromisoformat(self.to_date.replace('Z', '+00:00'))
+
     def generate_everything_queries(self) -> Iterator[EverythingQuery]:
         """
         Generate EverythingQuery instances from user input.
