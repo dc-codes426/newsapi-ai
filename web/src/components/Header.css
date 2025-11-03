@@ -14,6 +14,10 @@
   padding: 1rem 0;
 }
 
+.logo {
+  text-decoration: none;
+}
+
 .logo-text {
   font-size: 1.5rem;
   font-weight: 700;
@@ -55,6 +59,11 @@
 
 .nav-links a:hover {
   color: #1a73e8;
+}
+
+.nav-links a.active {
+  color: #1a73e8;
+  font-weight: 600;
 }
 
 .nav-link-secondary {

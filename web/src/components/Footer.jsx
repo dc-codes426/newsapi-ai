@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 function Footer() {
@@ -18,30 +19,27 @@ function Footer() {
           <div className="footer-section">
             <h4 className="footer-heading">Product</h4>
             <ul className="footer-links">
-              <li><a href="#documentation">Documentation</a></li>
-              <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#api-status">API Status</a></li>
-              <li><a href="#changelog">Changelog</a></li>
+              <li><Link to="/documentation">Documentation</Link></li>
+              <li><a href="https://github.com/dc-codes426/newsapi-ai" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><Link to="/#get-started">API Examples</Link></li>
             </ul>
           </div>
 
           <div className="footer-section">
             <h4 className="footer-heading">Resources</h4>
             <ul className="footer-links">
-              <li><a href="#blog">Blog</a></li>
-              <li><a href="#guides">Guides</a></li>
-              <li><a href="#support">Support</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><a href="https://github.com/dc-codes426/newsapi-ai/discussions" target="_blank" rel="noopener noreferrer">Community</a></li>
+              <li><a href="https://github.com/dc-codes426/newsapi-ai/issues" target="_blank" rel="noopener noreferrer">Support</a></li>
+              <li><Link to="/about">About</Link></li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <h4 className="footer-heading">Company</h4>
+            <h4 className="footer-heading">Connect</h4>
             <ul className="footer-links">
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><Link to="/contact">Contact</Link></li>
+              <li><a href="https://ko-fi.com/davidconnor" target="_blank" rel="noopener noreferrer">Support Us ☕</a></li>
               <li><a href="#privacy">Privacy Policy</a></li>
-              <li><a href="#terms">Terms of Service</a></li>
             </ul>
           </div>
         </div>

@@ -62,10 +62,10 @@ function Features() {
         <div className="cta-section">
           <h3 className="cta-title">Ready to empower your AI agents?</h3>
           <p className="cta-description">
-            Start building intelligent news-aware applications today. 100 free requests per day. No credit card required.
+            Start building intelligent news-aware applications today. 100% free. No authentication required.
           </p>
-          <a href="#api-key" className="btn btn-primary-large">
-            Get Your Free API Key
+          <a href="/documentation" className="btn btn-primary-large">
+            Start Building Now
           </a>
         </div>
       </div>

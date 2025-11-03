@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
 
   return (
     <header className="header">
       <div className="container">
         <nav className="nav">
-          <div className="logo">
+          <Link to="/" className="logo">
             <span className="logo-text">NewsAPI AI</span>
-          </div>
+          </Link>
 
           <button
             className="menu-toggle"
@@ -23,11 +25,42 @@ function Header() {
           </button>
 
           <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-            <li><a href="#get-started">Get Started</a></li>
-            <li><a href="#documentation">Documentation</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#login" className="nav-link-secondary">Login</a></li>
-            <li><a href="#api-key" className="nav-cta">Get API Key</a></li>
+            <li>
+              <Link
+                to="/#get-started"
+                onClick={() => setMenuOpen(false)}
+              >
+                Examples
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/documentation"
+                onClick={() => setMenuOpen(false)}
+                className={location.pathname === '/documentation' ? 'active' : ''}
+              >
+                Documentation
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                onClick={() => setMenuOpen(false)}
+                className={location.pathname === '/about' ? 'active' : ''}
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://github.com/dc-codes426/newsapi-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+              >
+                GitHub
+              </a>
+            </li>
           </ul>
         </nav>
       </div>

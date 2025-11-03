@@ -28,10 +28,10 @@ function Hero() {
             </div>
           </div>
           <div className="hero-cta">
-            <a href="#api-key" className="btn btn-primary">Get API Key</a>
-            <a href="#documentation" className="btn btn-secondary">View Documentation</a>
+            <a href="/documentation" className="btn btn-primary">View Documentation</a>
+            <a href="#get-started" className="btn btn-secondary">See Examples</a>
           </div>
-          <p className="hero-note">Start free - 100 requests per day • No credit card required</p>
+          <p className="hero-note">100% Free • No API Keys • No Registration Required</p>
         </div>
       </div>
     </section>

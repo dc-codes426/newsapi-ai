@@ -7,7 +7,6 @@ const examples = [
     title: 'Semantic Search',
     description: 'Query using natural language - no keyword matching needed',
     request: `POST /v2/semantic-search
-Authorization: Bearer YOUR_API_KEY
 Content-Type: application/json
 
 {
@@ -38,7 +37,6 @@ Content-Type: application/json
     title: 'AI Agent Context',
     description: 'Perfect for RAG systems - get context-aware news for your AI',
     request: `POST /v2/agent-context
-Authorization: Bearer YOUR_API_KEY
 Content-Type: application/json
 
 {
@@ -71,7 +69,6 @@ Content-Type: application/json
     title: 'Topic Monitoring',
     description: 'Keep your AI agents updated on specific topics',
     request: `POST /v2/monitor-topic
-Authorization: Bearer YOUR_API_KEY
 Content-Type: application/json
 
 {
@@ -103,7 +100,6 @@ Content-Type: application/json
     title: 'Conversational Query',
     description: 'Ask questions naturally - ideal for chatbots and assistants',
     request: `POST /v2/ask
-Authorization: Bearer YOUR_API_KEY
 Content-Type: application/json
 
 {
