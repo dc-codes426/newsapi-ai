@@ -1,6 +1,7 @@
 # Other
 run-backend.sh
 stop.sh
+CLAUDE.md
 
 # PID files
 server.pid

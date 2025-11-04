@@ -21,7 +21,7 @@ function Footer() {
             <ul className="footer-links">
               <li><Link to="/documentation">Documentation</Link></li>
               <li><a href="https://github.com/dc-codes426/newsapi-ai" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><Link to="/#get-started">API Examples</Link></li>
+              <li><Link to="/examples">API Examples</Link></li>
             </ul>
           </div>
 

@@ -27,8 +27,9 @@ function Header() {
           <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
             <li>
               <Link
-                to="/#get-started"
+                to="/examples"
                 onClick={() => setMenuOpen(false)}
+                className={location.pathname === '/examples' ? 'active' : ''}
               >
                 Examples
               </Link>
