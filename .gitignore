@@ -6,8 +6,14 @@ CLAUDE.md
 # PID files
 server.pid
 web.pid
-=======
 
+# Apify
+.apify/*
+apify_storage/
+storage/
+APIFY*
+src/actor_main.py
+.actor/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
