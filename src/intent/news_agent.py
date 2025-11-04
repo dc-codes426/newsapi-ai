@@ -150,16 +150,24 @@ class NewsAgent:
             }
         ]
 
-    def process_request(self, user_prompt: str, session_id: str = None) -> Dict[str, Any]:
+    def process_request(self, user_prompt: str, session_id: str = None, custom_news_client=None) -> Dict[str, Any]:
         """
         Process a user request using AI-driven tool selection.
         The AI decides which tools to call and how to use them.
+
+        Args:
+            user_prompt: Natural language query from the user
+            session_id: Optional session ID to maintain conversation context
+            custom_news_client: Optional NewsAPIClient with custom API key
 
         Returns all intermediate responses from Claude, including:
         - Text responses (clarifying questions, explanations, etc.)
         - Tool usage and results
         - Final summary
         """
+        # Use custom news client if provided, otherwise use default
+        active_news_client = custom_news_client if custom_news_client else self.news_client
+
         if session_id:
             # Get or create conversation history for this session
             if session_id not in self.conversation_history:
@@ -204,7 +212,7 @@ class NewsAgent:
                         tool_input = content_block.input
 
                         # Execute the tool
-                        result = self._execute_tool(tool_name, tool_input)
+                        result = self._execute_tool(tool_name, tool_input, active_news_client)
 
                         tool_results.append({
                             "type": "tool_result",
@@ -234,8 +242,17 @@ class NewsAgent:
                     "messages": messages  # Full conversation history
                 }
 
-    def _execute_tool(self, tool_name: str, tool_input: Dict[str, Any]) -> Dict[str, Any]:
-        """Execute a tool and return results"""
+    def _execute_tool(self, tool_name: str, tool_input: Dict[str, Any], news_client=None) -> Dict[str, Any]:
+        """
+        Execute a tool and return results
+
+        Args:
+            tool_name: Name of the tool to execute
+            tool_input: Input parameters for the tool
+            news_client: NewsAPIClient to use (defaults to self.news_client)
+        """
+        # Use provided client or fall back to default
+        client = news_client if news_client else self.news_client
 
         if tool_name == "optimize_queries":
             optimizer = QueryOptimizer()
@@ -247,7 +264,7 @@ class NewsAgent:
         elif tool_name == "search_everything":
             # Create UserQuery from tool input
             query = UserQuery(**tool_input)
-            result = self.news_client.search_everything(query)
+            result = client.search_everything(query)
             return {
                 "status": result["status"],
                 "total_results": result["totalResults"],
@@ -256,7 +273,7 @@ class NewsAgent:
 
         elif tool_name == "search_top_headlines":
             query = UserQuery(**tool_input)
-            result = self.news_client.search_top_headlines(query)
+            result = client.search_top_headlines(query)
             return {
                 "status": result["status"],
                 "total_results": result["totalResults"],
@@ -265,7 +282,7 @@ class NewsAgent:
 
         elif tool_name == "get_sources":
             query = UserQuery(**tool_input)
-            result = self.news_client.get_sources(query)
+            result = client.get_sources(query)
             return {
                 "status": result["status"],
                 "sources": result["sources"]

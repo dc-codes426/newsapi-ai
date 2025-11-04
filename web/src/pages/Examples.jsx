@@ -59,6 +59,29 @@ print(result["response"])`,
   },
   {
     id: 3,
+    category: 'Basic Usage',
+    title: 'Using Your Own API Key',
+    description: 'Provide your own NewsAPI key to avoid rate limits on the server\'s shared key.',
+    language: 'bash',
+    request: `curl -X POST http://localhost:8500/query \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "query": "Latest news about electric vehicles",
+    "news_api_key": "your_newsapi_key_here",
+    "response_format": "both"
+  }'`,
+    response: `{
+  "session_id": "def456",
+  "format": "both",
+  "response": "I found recent articles about electric vehicles using your API key...",
+  "articles": [...],
+  "total_results": 25
+}
+
+// Get your free NewsAPI key at https://newsapi.org/register`
+  },
+  {
+    id: 4,
     category: 'Advanced Usage',
     title: 'Multi-Turn Conversation',
     description: 'Use session IDs to maintain context across multiple queries.',
@@ -94,7 +117,7 @@ const result2 = await session2.json();`,
 }`
   },
   {
-    id: 4,
+    id: 5,
     category: 'Advanced Usage',
     title: 'Structured Data Extraction',
     description: 'Get structured article data for RAG systems and knowledge bases.',
@@ -141,7 +164,7 @@ for article in data["articles"]:
 }`
   },
   {
-    id: 5,
+    id: 6,
     category: 'AI Agent Integration',
     title: 'LangChain Integration',
     description: 'Integrate NewsAPI AI into your LangChain applications.',
@@ -192,7 +215,7 @@ Observation: Recent AI regulation news includes the EU AI Act entering final sta
 Final Answer: This week has seen significant AI regulation activity...`
   },
   {
-    id: 6,
+    id: 7,
     category: 'AI Agent Integration',
     title: 'RAG System with Context',
     description: 'Build a Retrieval-Augmented Generation system with current news.',
@@ -256,7 +279,7 @@ These initiatives show growing momentum toward sustainable solutions...
 Sources: Reuters, Bloomberg Green, The Guardian`
   },
   {
-    id: 7,
+    id: 8,
     category: 'Real-World Use Cases',
     title: 'Slack Bot Integration',
     description: 'Create a Slack bot that answers questions with current news.',
@@ -337,7 +360,7 @@ Sources:
 • US Announces $10B Green Infrastructure Fund - The Guardian`
   },
   {
-    id: 8,
+    id: 9,
     category: 'Real-World Use Cases',
     title: 'Daily News Digest',
     description: 'Generate automated daily digests for specific topics.',
@@ -544,6 +567,10 @@ function Examples() {
             <div className="tip-card">
               <h3>Performance</h3>
               <p>Cache responses when possible and batch similar queries together to optimize API usage and improve response times.</p>
+            </div>
+            <div className="tip-card">
+              <h3>Using Your Own API Key</h3>
+              <p>Avoid rate limits by providing your own NewsAPI key in the request. Get a free key at newsapi.org/register and include it in the "news_api_key" parameter.</p>
             </div>
           </div>
         </div>

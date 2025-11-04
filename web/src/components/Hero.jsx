@@ -31,7 +31,7 @@ function Hero() {
             <a href="/documentation" className="btn btn-primary">View Documentation</a>
             <a href="#get-started" className="btn btn-secondary">See Examples</a>
           </div>
-          <p className="hero-note">100% Free • No API Keys • No Registration Required</p>
+          <p className="hero-note">100% Free • Optional API Keys • Use Ours or Bring Your Own</p>
         </div>
       </div>
     </section>

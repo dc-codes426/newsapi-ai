@@ -158,10 +158,17 @@ async def query_news(request: QueryRequest):
         # Generate session_id if not provided
         session_id = request.session_id or str(uuid.uuid4())
 
+        # Create a custom news client if user provided their own API key
+        custom_news_client = None
+        if request.news_api_key:
+            logger.info("Using user-provided NewsAPI key")
+            custom_news_client = NewsAPIClient(api_key=request.news_api_key)
+
         # Process the request through the agent
         result = news_agent.process_request(
             user_prompt=request.query,
-            session_id=session_id
+            session_id=session_id,
+            custom_news_client=custom_news_client
         )
 
         # Extract natural language response

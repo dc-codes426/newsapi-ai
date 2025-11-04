@@ -25,6 +25,10 @@ class QueryRequest(BaseModel):
         default="both",
         description="Desired response format: 'natural' (text only), 'structured' (data only), or 'both'"
     )
+    news_api_key: Optional[str] = Field(
+        None,
+        description="Optional NewsAPI key. If provided, this key will be used instead of the server's default key. Get your free key at https://newsapi.org/register"
+    )
 
 
 class Article(BaseModel):
