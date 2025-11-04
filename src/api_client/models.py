@@ -65,13 +65,14 @@ def validate_sortBy(sortBy: str) -> str:
     if not sortBy:
         return None
 
-    allowed_fields = ['relevancy','popularity','publishedAt']
+    # Allowed fields are case-sensitive as per NewsAPI spec
+    allowed_fields = ['relevancy', 'popularity', 'publishedAt']
 
-    if sortBy.lower() not in allowed_fields:
-        logger.warning(f"Invalid sortBy: {sortBy}. Default is 'publishedAt'.")
+    if sortBy not in allowed_fields:
+        logger.warning(f"Invalid sortBy: {sortBy}. Allowed values: {allowed_fields}. Using default.")
         return None
-    if sortBy.lower() in allowed_fields:
-        return sortBy
+
+    return sortBy
 
 def validate_language_codes(language_codes: Optional[List[str]]) -> Optional[List[str]]:
     """

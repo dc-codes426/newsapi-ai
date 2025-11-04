@@ -174,14 +174,15 @@ class TestProcessRequest:
 
     def test_process_request_simple_response(self):
         """Test processing a simple request that doesn't require tools."""
+        from conftest import create_text_block
+
         mock_anthropic = Mock()
         mock_news_client = Mock()
 
         # Mock a simple text response (no tool use)
         mock_response = Mock()
         mock_response.stop_reason = "end_turn"
-        mock_text_block = Mock()
-        mock_text_block.text = "Here is the news you requested."
+        mock_text_block = create_text_block("Here is the news you requested.")
         mock_response.content = [mock_text_block]
 
         mock_anthropic.messages.create.return_value = mock_response
@@ -197,17 +198,15 @@ class TestProcessRequest:
 
     def test_process_request_with_tool_use(self):
         """Test processing a request that uses tools."""
+        from conftest import create_text_block, create_tool_block
+
         mock_anthropic = Mock()
         mock_news_client = Mock()
 
         # Mock tool use response, then final response
         mock_tool_response = Mock()
         mock_tool_response.stop_reason = "tool_use"
-        mock_tool_block = Mock()
-        mock_tool_block.type = "tool_use"
-        mock_tool_block.name = "search_everything"
-        mock_tool_block.input = {"q": "AI", "languages": ["en"]}
-        mock_tool_block.id = "tool_123"
+        mock_tool_block = create_tool_block("search_everything", {"q": "AI", "languages": ["en"]})
         mock_tool_response.content = [mock_tool_block]
 
         # Mock news client response
@@ -220,8 +219,7 @@ class TestProcessRequest:
         # Mock final text response
         mock_final_response = Mock()
         mock_final_response.stop_reason = "end_turn"
-        mock_text_block = Mock()
-        mock_text_block.text = "I found 5 articles about AI."
+        mock_text_block = create_text_block("I found 5 articles about AI.")
         mock_final_response.content = [mock_text_block]
 
         # Set up the mock to return tool response first, then final response
@@ -240,14 +238,15 @@ class TestProcessRequest:
 
     def test_process_request_with_session_id(self):
         """Test that session_id maintains conversation history."""
+        from conftest import create_text_block
+
         mock_anthropic = Mock()
         mock_news_client = Mock()
 
         # Mock simple response
         mock_response = Mock()
         mock_response.stop_reason = "end_turn"
-        mock_text_block = Mock()
-        mock_text_block.text = "Response"
+        mock_text_block = create_text_block("Response")
         mock_response.content = [mock_text_block]
 
         mock_anthropic.messages.create.return_value = mock_response
@@ -263,14 +262,15 @@ class TestProcessRequest:
 
     def test_process_request_without_session_id(self):
         """Test that requests without session_id don't maintain history."""
+        from conftest import create_text_block
+
         mock_anthropic = Mock()
         mock_news_client = Mock()
 
         # Mock simple response
         mock_response = Mock()
         mock_response.stop_reason = "end_turn"
-        mock_text_block = Mock()
-        mock_text_block.text = "Response"
+        mock_text_block = create_text_block("Response")
         mock_response.content = [mock_text_block]
 
         mock_anthropic.messages.create.return_value = mock_response
@@ -376,6 +376,8 @@ class TestIntegration:
 
     def test_full_workflow_with_mocks(self):
         """Test a complete workflow with all mocked components."""
+        from conftest import create_text_block, create_tool_block
+
         mock_anthropic = Mock()
         mock_news_client = Mock()
 
@@ -383,11 +385,11 @@ class TestIntegration:
         # 1. Tool use response
         mock_tool_response = Mock()
         mock_tool_response.stop_reason = "tool_use"
-        mock_tool_block = Mock()
-        mock_tool_block.type = "tool_use"
-        mock_tool_block.name = "search_everything"
-        mock_tool_block.input = {"q": "technology", "languages": ["en"]}
-        mock_tool_block.id = "tool_abc"
+        mock_tool_block = create_tool_block(
+            "search_everything",
+            {"q": "technology", "languages": ["en"]},
+            "tool_abc"
+        )
         mock_tool_response.content = [mock_tool_block]
 
         # 2. News API response
@@ -404,8 +406,7 @@ class TestIntegration:
         # 3. Final response
         mock_final_response = Mock()
         mock_final_response.stop_reason = "end_turn"
-        mock_text_block = Mock()
-        mock_text_block.text = "I found 3 technology articles for you."
+        mock_text_block = create_text_block("I found 3 technology articles for you.")
         mock_final_response.content = [mock_text_block]
 
         mock_anthropic.messages.create.side_effect = [

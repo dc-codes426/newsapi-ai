@@ -66,13 +66,13 @@ class TestNewsAPIClient:
     @pytest.mark.unit
     def test_top_headlines(self, mock_newsapi_client):
         """Test fetching top headlines (mocked)"""
-        from src.api_client.models import TopHeadlinesQuery
+        from src.api_client.models import UserQuery
         with NewsAPIClient() as client:
-            headlines_query = TopHeadlinesQuery(
-                country="us",
+            user_query = UserQuery(
+                countries=["us"],
                 pageSize=5
             )
-            results = client.search_top_headlines(headlines_query)
+            results = client.search_top_headlines(user_query)
 
             assert results['status'] == 'ok'
             assert 'articles' in results
@@ -106,8 +106,9 @@ class TestQueryOptimizer:
         if not settings.anthropic_api_key:
             pytest.skip("ANTHROPIC_API_KEY not set")
 
+    @pytest.mark.integration
     def test_query_optimization(self, check_anthropic_key):
-        """Test basic query optimization"""
+        """Test basic query optimization (MAKES REAL API CALLS)"""
         optimizer = QueryOptimizer(provider="anthropic")
         user_input = "What are the latest developments in renewable energy?"
 
@@ -155,9 +156,10 @@ class TestCompleteWorkflow:
         if not settings.anthropic_api_key:
             pytest.skip("ANTHROPIC_API_KEY not set")
 
+    @pytest.mark.integration
     def test_complete_workflow(self, check_all_keys):
         """
-        Test complete workflow:
+        Test complete workflow (MAKES REAL API CALLS to NewsAPI and Anthropic):
         1. Generate queries with LLM
         2. Search for articles using first query
         3. Convert to Article objects
@@ -226,8 +228,9 @@ class TestAPIErrorHandling:
         if not settings.news_api_key:
             pytest.skip("NEWS_API_KEY not set")
 
+    @pytest.mark.integration
     def test_newsapi_invalid_query(self, check_news_api_key):
-        """Test NewsAPI with invalid query parameters"""
+        """Test NewsAPI with invalid query parameters (MAKES REAL API CALLS)"""
         from src.api_client.models import UserQuery
         with NewsAPIClient() as client:
             # Empty query should raise ValueError
@@ -240,8 +243,9 @@ class TestAPIErrorHandling:
                 # Expected - empty query is invalid
                 assert True
 
+    @pytest.mark.integration
     def test_newsapi_invalid_date_range(self, check_news_api_key):
-        """Test NewsAPI with invalid date range"""
+        """Test NewsAPI with invalid date range (MAKES REAL API CALLS)"""
         from datetime import datetime, timedelta
 
         with NewsAPIClient() as client:
@@ -262,8 +266,9 @@ class TestAPIErrorHandling:
                 # Error is acceptable
                 assert True
 
+    @pytest.mark.integration
     def test_newsapi_invalid_page_size(self, check_news_api_key):
-        """Test NewsAPI with invalid page size"""
+        """Test NewsAPI with invalid page size (MAKES REAL API CALLS)"""
         with NewsAPIClient() as client:
             # Page size of 0 or negative
             try:
@@ -277,8 +282,9 @@ class TestAPIErrorHandling:
                 # Error is acceptable
                 assert True
 
+    @pytest.mark.integration
     def test_newsapi_connection_error(self):
-        """Test NewsAPI connection error handling"""
+        """Test NewsAPI connection error handling (MAKES REAL API CALLS)"""
         # Create client with invalid API key
         try:
             with NewsAPIClient(api_key="invalid_key_12345") as client:
@@ -293,8 +299,9 @@ class TestAPIErrorHandling:
             # Connection errors are acceptable
             assert True
 
+    @pytest.mark.integration
     def test_query_optimizer_empty_input(self):
-        """Test query optimizer with empty input"""
+        """Test query optimizer with empty input (MAKES REAL API CALLS)"""
         settings = get_settings()
         if not settings.anthropic_api_key:
             pytest.skip("ANTHROPIC_API_KEY not set")
@@ -310,8 +317,9 @@ class TestAPIErrorHandling:
             # Error is acceptable
             assert True
 
+    @pytest.mark.integration
     def test_query_optimizer_very_long_input(self):
-        """Test query optimizer with very long input"""
+        """Test query optimizer with very long input (MAKES REAL API CALLS)"""
         settings = get_settings()
         if not settings.anthropic_api_key:
             pytest.skip("ANTHROPIC_API_KEY not set")

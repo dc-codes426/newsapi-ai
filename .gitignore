@@ -6,6 +6,7 @@ CLAUDE.md
 # PID files
 server.pid
 web.pid
+=======
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
