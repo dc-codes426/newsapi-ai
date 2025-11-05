@@ -1,0 +1,51 @@
+{
+    "title": "NewsAPI AI Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "query": {
+            "title": "Query",
+            "type": "string",
+            "description": "Natural language query for news search (e.g., 'Latest AI developments', 'Tech news from yesterday', 'Top headlines about climate change')",
+            "editor": "textarea",
+            "example": "What are the latest developments in artificial intelligence?"
+        },
+        "newsApiKey": {
+            "title": "NewsAPI Key",
+            "type": "string",
+            "description": "Your NewsAPI.org API key. Get a free key at https://newsapi.org/register. If not provided, the Actor's default key will be used (subject to rate limits).",
+            "editor": "textfield",
+            "isSecret": true
+        },
+        "anthropicApiKey": {
+            "title": "Anthropic API Key",
+            "type": "string",
+            "description": "Your Anthropic API key for Claude AI. Get one at https://console.anthropic.com/. If not provided, the Actor's default key will be used (subject to rate limits).",
+            "editor": "textfield",
+            "isSecret": true
+        },
+        "responseFormat": {
+            "title": "Response Format",
+            "type": "string",
+            "description": "How to format the response",
+            "editor": "select",
+            "default": "both",
+            "enum": ["natural", "structured", "both"],
+            "enumTitles": [
+                "Natural language only",
+                "Structured articles only",
+                "Both natural language and structured articles"
+            ]
+        },
+        "maxResults": {
+            "title": "Maximum Results",
+            "type": "integer",
+            "description": "Maximum number of articles to return",
+            "editor": "number",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 100
+        }
+    },
+    "required": ["query"]
+}

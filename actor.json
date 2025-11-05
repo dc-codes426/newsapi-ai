@@ -1,0 +1,24 @@
+{
+    "actorSpecification": 1,
+    "name": "newsapi-ai",
+    "title": "NewsAPI AI",
+    "version": "1.0",
+    "buildTag": "latest",
+    "description": "AI-powered news search using Claude AI and NewsAPI.org. Accepts natural language queries and returns intelligent, curated news results.",
+    "minMemoryMbytes": 512,
+    "maxMemoryMbytes": 2048,
+    "dockerfile": "./Dockerfile",
+    "readme": "./README.md",
+    "input": "./INPUT_SCHEMA.json",
+    "categories": ["AI", "NEWS", "SEARCH"],
+    "environmentVariables": {
+        "ANTHROPIC_API_KEY": "",
+        "NEWS_API_KEY": ""
+    },
+    "builds":[
+	{
+	   "cmd": "python -m src.actor_main"
+	}
+      ]
+}
+
