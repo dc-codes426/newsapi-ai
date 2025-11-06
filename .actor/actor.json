@@ -1,6 +1,6 @@
 {
     "actorSpecification": 1,
-    "name": "newsapi-ai",
+    "name": "artistic_notation/newsapi-ai",
     "title": "NewsAPI AI",
     "version": "1.0",
     "buildTag": "latest",
