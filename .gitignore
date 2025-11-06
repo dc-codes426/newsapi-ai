@@ -6,8 +6,12 @@ storage/
 # PID files
 server.pid
 web.pid
-=======
 
+# Apify
+.apify/*
+apify_storage/
+storage/
+APIFY*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -215,3 +219,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Added by Apify CLI
+storage
+node_modules

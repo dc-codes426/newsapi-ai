@@ -1,0 +1,47 @@
+{
+  "query": "Latest AI news",
+  "format": "both",
+  "response": "Here are the latest AI news headlines:\n\n## **1. OpenAI Brings Sora Video-Generating App to Android Devices**\n- **Source:** Bloomberg\n- **Published:** November 4, 2025\n- **Summary:** OpenAI has released its Sora social video app on Android devices, one month after launching the popular and controversial AI-powered video-generating service on iPhone.\n- [Read more](https://www.bloomberg.com/news/articles/2025-11-04/openai-brings-sora-video-generating-app-to-android-devices)\n\n## **2. Amazon Demands Perplexity Stop AI Agent From Making Purchases**\n- **Source:** Bloomberg  \n- **Published:** November 4, 2025\n- **Summary:** Amazon has sent a cease-and-desist letter to Perplexity AI, demanding the startup stop allowing its AI browser agent, Comet, to make online purchases for users.\n- [Read more](https://www.bloomberg.com/news/articles/2025-11-04/amazon-demands-perplexity-stop-ai-agent-from-making-purchases)\n\n## **3. Artificial Intelligence Training is Powered Mostly by Fossil Fuels**\n- **Source:** New Scientist\n- **Published:** February 28, 2023\n- **Summary:** An analysis of 95 AIs reveals that most AI training relies on electrical grids primarily powered by coal and gas rather than low-carbon sources, highlighting environmental concerns.\n- [Read more](https://www.newscientist.com/article/2361343-artificial-intelligence-training-is-powered-mostly-by-fossil-fuels/)\n\nThe top stories today focus on OpenAI's expansion of its Sora app to Android and Amazon's legal action against Perplexity AI's shopping agent feature.",
+  "articles": [
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": "Chris Welch",
+      "title": "OpenAI Brings Sora Video-Generating App to Android Devices",
+      "description": "OpenAI is releasing its Sora social video app on Android devices, one month after the artificial intelligence company launched the popular — and controversial — service on iPhone.",
+      "url": "https://www.bloomberg.com/news/articles/2025-11-04/openai-brings-sora-video-generating-app-to-android-devices",
+      "urlToImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iC6iiKrlqv4Y/v1/1200x800.jpg",
+      "publishedAt": "2025-11-04T20:03:42+00:00",
+      "content": "OpenAI is releasing its Sora social video app on Android devices, one month after the artificial intelligence company launched the popular and controversial service on iPhone.\r\nThe ChatGPT maker on T… [+245 chars]"
+    },
+    {
+      "source": {
+        "id": "bloomberg",
+        "name": "Bloomberg"
+      },
+      "author": "Shirin Ghaffary, Matt Day",
+      "title": "Amazon Demands Perplexity Stop AI Agent From Making Purchases",
+      "description": "Amazon.com Inc. has sent a cease-and-desist letter to Perplexity AI Inc. demanding that the artificial intelligence search startup stop allowing its AI browser agent, Comet, to make purchases online for users.",
+      "url": "https://www.bloomberg.com/news/articles/2025-11-04/amazon-demands-perplexity-stop-ai-agent-from-making-purchases",
+      "urlToImage": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ixtPkBZu0VsQ/v1/1200x864.jpg",
+      "publishedAt": "2025-11-04T18:00:14+00:00",
+      "content": "Amazon.com Inc. has sent a cease-and-desist letter to Perplexity AI Inc. demanding that the artificial intelligence search startup stop allowing its AI browser agent, Comet, to make purchases online … [+460 chars]"
+    },
+    {
+      "source": {
+        "id": "new-scientist",
+        "name": "New Scientist"
+      },
+      "author": null,
+      "title": "Artificial intelligence training is powered mostly by fossil fuels",
+      "description": "Most AI training relies on electrical grids primarily powered by coal and gas rather than low-carbon sources, according to an analysis of 95 AIs",
+      "url": "https://www.newscientist.com/article/2361343-artificial-intelligence-training-is-powered-mostly-by-fossil-fuels/",
+      "urlToImage": "https://images.newscientist.com/wp-content/uploads/2023/02/27175243/SEI_146086422.jpg",
+      "publishedAt": "2023-02-28T00:00:00Z",
+      "content": "By Jeremy Hsu\r\nTraining AIs can use a significant amount of power\r\nShutterstock/VanderWolf Images\r\nArtificial intelligence training is powered mostly by fossil fuels, according to one of the largest … [+376 chars]"
+    }
+  ],
+  "total_results": 3
+}
