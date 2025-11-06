@@ -2,7 +2,7 @@
 run-backend.sh
 stop.sh
 CLAUDE.md
-
+storage/
 # PID files
 server.pid
 web.pid
