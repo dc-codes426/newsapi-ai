@@ -1,0 +1,13 @@
+anthropic>=0.39.0
+requests>=2.31.0
+pydantic>=2.9.0,<2.10.0
+pydantic-settings>=2.2.0,<2.7.0
+python-dotenv>=1.0.0
+validators>=0.22.0
+pytest>=7.4.0
+pytest-cov>=4.1.0
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+httpx>=0.25.0
+gunicorn>=21.2.0
+apify>=2.0.0
